@@ -3,12 +3,229 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>AdvancedNet</title>
 
-    <meta http-equiv="refresh"
-          content="0;url=https://script.google.com/macros/s/AKfycbwvsmqt5jEDlNrHv6DpANcuSS7Ye8r3PEspEHPalZKfCP-c8TKoe0UdOQiHaRexRQAi/exec">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa, #e9eef5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .loading-container {
+            width: 100%;
+            max-width: 420px;
+            text-align: center;
+            padding: 30px;
+        }
+
+        /* Logo */
+        .logo-wrapper {
+            width: 130px;
+            height: 130px;
+            margin: 0 auto 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .logo-wrapper::before {
+            content: "";
+            position: absolute;
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            border: 3px solid rgba(0, 102, 204, 0.15);
+            animation: pulse 2s infinite;
+        }
+
+        .logo-wrapper::after {
+            content: "";
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 2px solid rgba(0, 102, 204, 0.08);
+            animation: pulse 2s infinite 0.5s;
+        }
+
+        .logo {
+            width: 105px;
+            height: 105px;
+            object-fit: contain;
+            position: relative;
+            z-index: 2;
+            animation: floating 2.5s ease-in-out infinite;
+        }
+
+        /* Loading text */
+        .title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: #6b7280;
+            margin-bottom: 25px;
+        }
+
+        /* Loading bar */
+        .progress-container {
+            width: 220px;
+            height: 5px;
+            background: rgba(0, 102, 204, 0.12);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 0 auto 15px;
+        }
+
+        .progress-bar {
+            width: 35%;
+            height: 100%;
+            border-radius: 10px;
+            background: linear-gradient(
+                90deg,
+                #0066cc,
+                #00a8ff,
+                #0066cc
+            );
+            animation: loading 1.4s ease-in-out infinite;
+        }
+
+        .loading-text {
+            font-size: 12px;
+            color: #9ca3af;
+            letter-spacing: 0.3px;
+        }
+
+        /* Animations */
+        @keyframes loading {
+            0% {
+                transform: translateX(-150%);
+            }
+
+            50% {
+                transform: translateX(150%);
+            }
+
+            100% {
+                transform: translateX(450%);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        @keyframes floating {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-7px);
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 480px) {
+            .logo-wrapper {
+                width: 115px;
+                height: 115px;
+            }
+
+            .logo-wrapper::before {
+                width: 115px;
+                height: 115px;
+            }
+
+            .logo-wrapper::after {
+                width: 135px;
+                height: 135px;
+            }
+
+            .logo {
+                width: 90px;
+                height: 90px;
+            }
+
+            .title {
+                font-size: 20px;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <p>Mengalihkan ke aplikasi...</p>
+
+    <div class="loading-container">
+
+        <div class="logo-wrapper">
+            <img src="Log.png" alt="AdvancedNet" class="logo">
+        </div>
+
+        <div class="title">
+            AdvancedNet
+        </div>
+
+        <div class="subtitle">
+            Membuka aplikasi...
+        </div>
+
+        <div class="progress-container">
+            <div class="progress-bar"></div>
+        </div>
+
+        <div class="loading-text">
+            Mohon tunggu sebentar
+        </div>
+
+    </div>
+
+    <script>
+
+        const targetURL =
+            "https://script.google.com/macros/s/AKfycbwvsmqt5jEDlNrHv6DpANcuSS7Ye8r3PEspEHPalZKfCP-c8TKoe0UdOQiHaRexRQAi/exec";
+
+        /*
+         * Memberikan waktu sebentar agar animasi
+         * sempat terlihat sebelum pindah halaman.
+         */
+        setTimeout(function () {
+            window.location.replace(targetURL);
+        }, 1800);
+
+    </script>
+
 </body>
 </html>
